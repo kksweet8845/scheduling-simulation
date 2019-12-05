@@ -2,10 +2,10 @@ TARGET  = scheduling_simulator
 SRC_DIR = ./
 INC_DIR = ./
 CC = gcc
-CFLAGS += -std=gnu99 -Wall -g
+CFLAGS += -std=gnu99 -Wall -g -I./include
 SRC     = $(wildcard $(SRC_DIR)*.c)
 OBJ     = $(SRC:%.c=%.o) #$(patsubst %.c, %.o, $(SRC))
-DEP     = $(SRC:%.c=%.d) #$(patsubst %.o, %.d, $(OBJ))
+DEP     = $(SRC:%.c=%.d) #$(patsubst %.o, %.d, $(
 
 GIT_HOOKS := .git/hooks/applied
 
@@ -40,6 +40,7 @@ test2:
 # The potential dependency on header files is covered by calling `-include $(DEP)`.
 %.o : %.c
 	$(CC) $(CFLAGS) -MMD -c $< -o $@
+
 
 ## clean
 clean:
