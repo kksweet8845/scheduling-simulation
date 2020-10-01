@@ -444,8 +444,8 @@ static inline void list_move_tail(struct list_head *node,
 #ifdef __LIST_HAVE_TYPEOF
 #define list_for_each_entry(entry, head, member)                       \
     for (entry = list_entry((head)->next, __typeof__(*entry), member); \
-         &entry->member != (head);                                     \
-         entry = list_entry(entry->member.next, __typeof__(*entry), member))
+        &entry->member != (head);                                     \
+        entry = list_entry(entry->member.next, __typeof__(*entry), member))
 #endif
 
 /**
@@ -459,7 +459,7 @@ static inline void list_move_tail(struct list_head *node,
  */
 #define list_for_each_safe(node, safe, head)                     \
     for (node = (head)->next, safe = node->next; node != (head); \
-         node = safe, safe = node->next)
+        node = safe, safe = node->next)
 
 /**
  * list_for_each_entry_safe - iterate over list entries and allow deletes
@@ -476,7 +476,7 @@ static inline void list_move_tail(struct list_head *node,
 #define list_for_each_entry_safe(entry, safe, head, member)                \
     for (entry = list_entry((head)->next, __typeof__(*entry), member),     \
         safe = list_entry(entry->member.next, __typeof__(*entry), member); \
-         &entry->member != (head); entry = safe,                           \
+        &entry->member != (head); entry = safe,                           \
         safe = list_entry(safe->member.next, __typeof__(*entry), member))
 
 #undef __LIST_HAVE_TYPEOF

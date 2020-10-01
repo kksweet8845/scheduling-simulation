@@ -2,8 +2,6 @@
 
 
 
-
-
 /* Helper section */
 status_type task_prioinsert(struct list_head* node,
                             struct list_head* head,
